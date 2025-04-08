@@ -68,12 +68,14 @@ resource "azurerm_resource_group" "my_rg" {
 }
 ```
 **5. Use Modules for Reusability:-** To avoid repetition and keep the code clean, I would create **modules** for common resources like VPCs, S3 buckets, or virtual networks. This ensures that code can be reused across environments and cloud providers.
+
 **6. Use Workspaces for Environment Separation:-** If I need to work across different environments (e.g., **dev**, **staging**, **prod**), I would use **workspaces** to keep the state file isolated between environments.
 ```bash
 terraform workspace new dev
 terraform workspace select dev
 ```
 **7. Remote State Management:-** To ensure proper collaboration and avoid conflicts in the state file, I would use **remote state** (e.g., AWS S3 or Terraform Cloud) to store the state file. This ensures that the Terraform state is accessible and safely shared between team members.
+
 **8. Sensitive Data Management:-** For managing sensitive data like **API keys** or **credentials**, I would either use **Terraform's sensitive flag** or tools like **HashiCorp Vault** to securely store sensitive information.
 
 ---
