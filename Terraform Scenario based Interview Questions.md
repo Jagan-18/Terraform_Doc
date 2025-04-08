@@ -79,6 +79,24 @@ terraform workspace select dev
 **8. Sensitive Data Management:-** For managing sensitive data like **API keys** or **credentials**, I would either use **Terraform's sensitive flag** or tools like **HashiCorp Vault** to securely store sensitive information.
 
 ---
+## 3. Your company wants to automate Terraform through CICD pipelines. How can you integrate Terraform with CI/CD pipelines?
+Terraform can be integrated with CI/CD pipelines to automate the deployment and management of infrastructure.
+
+1. **Version Control Integration**:-  Store the Terraform configuration files in a **Git repository** (e.g., GitHub, GitLab, Bitbucket) to trigger the pipeline on changes.
+
+2. **Terraform Initialization**:-  In the pipeline, use a **CI/CD tool** (e.g., Jenkins, GitLab CI, GitHub Actions) to run `terraform init` to initialize the working directory and install the necessary providers.
+
+3. **Terraform Plan**:-  Run `terraform plan` to check the changes that Terraform will make to the infrastructure, and save the plan as an artifact or a log file. This helps to review changes before applying.
+
+4. **Terraform Apply**:-   After approval (if required), run `terraform apply` to apply the changes to the infrastructure. Ensure that this step is automated with necessary access controls for security.
+
+5. **State Management**:-  Store Terraform state files in a **remote backend** (e.g., AWS S3, Azure Blob Storage) for consistency across different pipeline runs and to prevent state file issues.
+
+6. **Environment-Specific Pipelines**:- Define separate stages for different environments (e.g., dev, staging, prod) to ensure that Terraform applies changes to the right environment, with approvals for production.
+
+7. **Automated Testing**:-  Optionally, use **terraform validate** and **terraform fmt** to validate the configuration and ensure proper formatting before running the actual apply.
+---
+
 
 
 
