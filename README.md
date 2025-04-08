@@ -1,7 +1,16 @@
 # Terraform - Interview Questions & Answers
 ---
 ## 1. What is Terraform?
-Terraform is an open-source Infrastructure as Code (IaC) tool that allows you to define, provision, and manage infrastructure using a high-level configuration language (HCL). It is used for automating the setup and management of cloud resources and services in a consistent and repeatable way.
+- Terraform is an open-source Infrastructure as Code (IaC) tool that allows you to define, provision, and manage infrastructure using a high-level configuration language (HCL).
+-  It is used for automating the setup and management of cloud resources and services in a consistent and repeatable way.
+**Example:**
+provider "aws" {
+region = "us-west-2"
+}
+resource "aws_instance" "example" {
+ami = "ami-0c55b159cbfafe1f0"
+instance_type = "t2.micro"
+}
 
 ---
 ## 2. Explain the concept of Terraform providers.
