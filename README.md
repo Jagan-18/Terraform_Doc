@@ -130,6 +130,8 @@ The **Terraform state file** (`terraform.tfstate`) is used by Terraform to keep 
 6. **Environment Separation**: Use separate state files for each environment (e.g., dev, staging, prod) by utilizing **Terraform workspaces** or dedicated backends for each environment. This prevents accidental changes across environments.
 
 ---
-
+## 15. What is Terraform's "module registry," and how can you leverage it?
+- Terraform's "module registry" is a central repository for sharing and discovering Terraform modules. The module registry allows users to publish their modules, which are reusable and shareable components of Terraform configurations.
+- By leveraging the module registry, you can easily discover existing modules that address your infrastructure needs, reducing duplication of effort. You can reference modules in your Terraform code using their registry URL and version.
 
 
