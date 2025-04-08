@@ -110,6 +110,31 @@ Terraform provisions infrastructure, while Ansible or Chef handles configuration
 4. **Automation with CI/CD**:-  Integrate Terraform, Ansible, and Chef into your **CI/CD pipeline**. Terraform provisions the infrastructure, and then Ansible/Chef automates the configuration and application deployment.
 
 5. **Remote Execution**:-  Use **Terraform provisioners** (e.g., `remote-exec`) to invoke Ansible or Chef to configure resources immediately after they are created by Terraform.
+   
+---
+
+## 5. Your infrastructure contains database passwords and other sensitive information. How can you manage secrets and sensitive data in Terraform?
+Managing secrets and sensitive data in Terraform requires a careful approach to ensure that sensitive information, such as database passwords, API keys, and other confidential data, is kept secure throughout your infrastructure lifecycle.
+
+1. **Use Sensitive Variables**:-  In Terraform, mark variables as sensitive by setting `sensitive = true`. This ensures the values are not displayed in the Terraform plan or apply output.
+   ```hcl
+   variable "db_password" {
+     type      = string
+     sensitive = true
+   }
+   ```
+2. **Use Remote Secret Management**:-  Store sensitive data in a **secret management system** like **AWS Secrets Manager**, **Azure Key Vault**, or **HashiCorp Vault**. Retrieve the secrets dynamically using the appropriate Terraform data sources.
+   ```hcl
+   data "aws_secretsmanager_secret" "example" {
+     name = "my-secret"
+   }
+   ```
+3. **Environment Variables**:-  Use environment variables to pass sensitive information to Terraform, instead of hardcoding values in configuration files. This avoids storing sensitive data in your Terraform code.
+
+4. **State File Encryption**:-     Store the Terraform state file in a **remote backend** (e.g., AWS S3, Azure Blob Storage) with **encryption** enabled to protect sensitive data from unauthorized access.
+
+5. **Access Control**:-  Restrict access to Terraform state files and secrets using **IAM roles** and **policies**, ensuring that only authorized users or services can access them.
+
 ---
 
 
