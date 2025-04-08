@@ -3,15 +3,16 @@
 ## 1. What is Terraform?
 - Terraform is an open-source Infrastructure as Code (IaC) tool that allows you to define, provision, and manage infrastructure using a high-level configuration language (HCL).
 -  It is used for automating the setup and management of cloud resources and services in a consistent and repeatable way.
+-  
 **Example:**
-provider "aws" {
+`provider "aws" {
 region = "us-west-2"
 }
 resource "aws_instance" "example" {
 ami = "ami-0c55b159cbfafe1f0"
 instance_type = "t2.micro"
 }
-
+`
 ---
 ## 2. Explain the concept of Terraform providers.
 A **provider** in Terraform is responsible for interacting with external APIs to manage the lifecycle of resources. Providers define the set of resources that can be created, read, updated, and deleted, such as AWS, Azure, Google Cloud, etc. Each provider has its own set of configuration options, which must be defined in your Terraform code.
