@@ -136,7 +136,7 @@ Managing secrets and sensitive data in Terraform requires a careful approach to 
 5. **Access Control**:-  Restrict access to Terraform state files and secrets using **IAM roles** and **policies**, ensuring that only authorized users or services can access them.
 
 ---
-### **You have a RDS Database and EC2 instance. EC2 should be created before RDS, How can you specify dependencies between resources in Terraform?**
+## 6. You have a RDS Database and EC2 instance. EC2 should be created before RDS, How can you specify dependencies between resources in Terraform?
 - In Terraform, you can specify dependencies between resources using the `depends_on` attribute within resource blocks.
 - By including this attribute, you define an explicit ordering of resource creation and ensure that one resource is created before another. This helps manage dependencies when one resource relies on the existence or configuration of another resource.
 
@@ -151,6 +151,48 @@ resource "aws_db_instance" "example_rds" {
 }
 ```
 ---
+
+## 7. You have 20 servers created through Terraform but you want to delete one of them. Is it possible to destroy a single resource out of multiple resources using Terraform?
+Yes, it is possible to destroy a single resource out of multiple resources in Terraform using the `terraform destroy` command with the `-target` option.
+
+1. **Use `-target` Option**:- You can specify the resource you want to destroy by using the `-target` flag followed by the resource name.
+   ```bash
+   terraform destroy -target=aws_instance.example_server
+   ```
+- This command will destroy only the specific resource `aws_instance.example_server` while leaving other resources intact.
+
+2. **Caution**:-  Be cautious when using `-target` because it may leave resources in an inconsistent state if dependencies exist between resources.
+
+---
+## 8. What are the advantages of using Terraform's "count" feature over resource duplication?
+The count feature in Terraform allows you to create multiple instances of a resource based on a single block of code, making it much more efficient than duplicating the same resource multiple times
+1. **Reduced Code Duplication**:-   `count` allows you to create multiple instances of a resource with a single block of code, reducing redundancy and making the configuration more maintainable.
+   ```hcl
+   resource "aws_instance" "example" {
+     count         = 3
+     ami           = "ami-12345"
+     instance_type = "t2.micro"
+   }
+   ```
+2. **Scalability**:-  You can easily scale the number of resources by adjusting the `count` value without duplicating entire resource blocks.
+
+3. **Dynamic Resource Creation**:  
+   `count` can be combined with variables or conditions, allowing dynamic resource creation based on inputs or logic.
+
+   ```hcl
+   resource "aws_instance" "example" {
+     count         = var.instance_count
+     ami           = "ami-12345"
+     instance_type = "t2.micro"
+   }
+   ```
+4. **Easier Management**:- Managing and updating resources becomes easier with `count` because changes to the resource configuration apply uniformly to all instances created by `count`.
+
+5. **Efficient State Management**:-  Terraform tracks all resources created with `count` in the state file, making it easier to manage their lifecycle and avoid manually handling each duplicate resource.
+
+---
+
+
 
 
 
