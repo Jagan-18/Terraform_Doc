@@ -96,7 +96,21 @@ Terraform can be integrated with CI/CD pipelines to automate the deployment an
 
 7. **Automated Testing**:-  Optionally, use **terraform validate** and **terraform fmt** to validate the configuration and ensure proper formatting before running the actual apply.
 ---
+## 4. Describe how you can use Terraform with infrastructure deployment tools like Ansible or Chef.
+Terraform provisions infrastructure, while Ansible or Chef handles configuration management, ensuring a seamless, automated infrastructure deployment and management process.
 
+1. **Terraform for Infrastructure Provisioning**:-  Use **Terraform** to provision the underlying infrastructure (e.g., VMs, networks, storage) on cloud providers like AWS, Azure, or GCP.
+
+2. **Ansible or Chef for Configuration Management**:-   After provisioning resources with Terraform, use **Ansible** or **Chef** to configure and manage the software and services on the provisioned infrastructure. For example, you can install and configure a web server, deploy application code, or manage security settings.
+
+3. **Integration Workflow**:
+   - **Terraform First**: Run `terraform apply` to create the infrastructure.
+   - **Ansible/Chef Second**: Use Ansible playbooks or Chef recipes to configure the infrastructure after it is provisioned by Terraform. This can be done by running Ansible or Chef in a separate step in your CI/CD pipeline or as part of the post-deployment process.
+
+4. **Automation with CI/CD**:-  Integrate Terraform, Ansible, and Chef into your **CI/CD pipeline**. Terraform provisions the infrastructure, and then Ansible/Chef automates the configuration and application deployment.
+
+5. **Remote Execution**:-  Use **Terraform provisioners** (e.g., `remote-exec`) to invoke Ansible or Chef to configure resources immediately after they are created by Terraform.
+---
 
 
 
