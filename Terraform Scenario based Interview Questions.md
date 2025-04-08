@@ -17,13 +17,8 @@ To use the same code across multiple environments like dev, stage, and prod, whi
 Apologies for the confusion! I understand now that you're looking for a **clear, concise, and easy-to-understand answer** that you can use in your **real interview** without sounding overly complex. Here's a more **direct, structured, and simple explanation** that you can use when asked how you would structure Terraform code for managing resources across AWS and Azure in a multicloud strategy:
 
 ---
-
-## 2. How would you structure your Terraform code to manage resources across both AWS and Azure?
-(OR)
-#### Your team is adopting a multicloud strategy and you need to manage resources on both AWS and Azure using terraform so how do you structure your terraform code to handle this?
----
+## 2. How would you structure your Terraform code to manage resources across both AWS and Azure? (OR) Your team is adopting a multicloud strategy and you need to manage resources on both AWS and Azure using terraform so how do you structure your terraform code to handle this?
 In a multicloud environment where I need to manage resources across both **AWS** and **Azure** using Terraform, I would structure the code in a few straightforward steps:
-
 **1. Define Separate Providers for AWS and Azure:-** The first step is to configure both cloud providers, **AWS** and **Azure**. Each cloud will have its own provider configuration so Terraform knows how to interact with both platforms.
 ```hcl
 # AWS provider
