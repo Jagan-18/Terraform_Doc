@@ -21,7 +21,8 @@ Apologies for the confusion! I understand now that you're looking for a **clear,
 In a multicloud environment where I need to manage resources across both **AWS** and **Azure** using Terraform, I would structure the code in a few straightforward steps:
 
 **1. Define Separate Providers for AWS and Azure:-** The first step is to configure both cloud providers, **AWS** and **Azure**. Each cloud will have its own provider configuration so Terraform knows how to interact with both platforms.
-`# AWS provider
+```hcl
+# AWS provider
 provider "aws" {
   region = "us-east-1"
 }
@@ -29,8 +30,8 @@ provider "aws" {
 # Azure provider
 provider "azurerm" {
   features {}
-} `
-
+} 
+```
 **2. Use Variables for Flexibility:-** To make the code reusable and easy to maintain, I would define variables for things like **region**, **credentials**, and any other configurations that might change between environments or cloud providers.
 ```hcl
 variable "aws_region" {
