@@ -1,54 +1,58 @@
 # Terraform - Interview Questions & Answers
 ---
 ## 1. What is Terraform?
-**Answer:**
 Terraform is an open-source Infrastructure as Code (IaC) tool that allows you to define, provision, and manage infrastructure using a high-level configuration language (HCL). It is used for automating the setup and management of cloud resources and services in a consistent and repeatable way.
 
 ---
 ## 2. Explain the concept of Terraform providers.
-**Answer:**
 A **provider** in Terraform is responsible for interacting with external APIs to manage the lifecycle of resources. Providers define the set of resources that can be created, read, updated, and deleted, such as AWS, Azure, Google Cloud, etc. Each provider has its own set of configuration options, which must be defined in your Terraform code.
 
 ---
 ## 3. What is a Terraform module?
-**Answer:**
 A **module** in Terraform is a container for multiple resources that are used together. It allows you to group related resources, making your configuration reusable and more manageable. Modules can be created locally or sourced from the Terraform Registry, and they help in organizing your infrastructure code in a modular way.
 
 ---
 ## 4. How does Terraform manage state?
-**Answer:**
 Terraform uses a state file (`terraform.tfstate`) to track the current state of the infrastructure. The state file allows Terraform to determine what changes need to be made when running `terraform apply`. This file can be stored locally or remotely (e.g., in AWS S3), and it is critical for maintaining consistency between the actual infrastructure and the Terraform configuration.
 
 ---
 
 ## 5. What is the difference between `terraform apply` and `terraform plan`?
-**Answer:**
 - **`terraform plan`**: This command creates an execution plan, showing what actions Terraform will take to achieve the desired state based on the configuration files. It does not make any changes to the infrastructure.
 - **`terraform apply`**: This command applies the changes specified in the Terraform plan and updates the infrastructure accordingly.
 
+|           **`terraform plan`**                                                      |     **`terraform apply`**                                                   |
+|-------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| Generates an execution plan showing the changes Terraform will make.                | Executes the changes and applies them to the infrastructure.                |
+| **No changes** are made to the infrastructure. It only previews the actions.        | **Changes** infrastructure by creating, modifying, or destroying resources. |
+| Use to **review** and **verify** changes before applying.                           | Use to **apply** changes after reviewing the plan.                          |
+| Displays a preview of what Terraform will do (create, update, or delete resources). | Actually applies the changes and modifies infrastructure.                   | 
+| Does not require confirmation.                                                      | Requires confirmation unless `-auto-approve` is used.                       |
+| `terraform plan`                                                                    | `terraform apply`                                                           |
+
 ---
 ## 6. What are workspaces in Terraform?
-**Answer:**
+
 Workspaces in Terraform allow you to manage multiple environments (e.g., development, staging, production) using the same configuration files. By default, Terraform has a `default` workspace, but you can create additional workspaces to isolate the state of each environment. Workspaces help manage state files for different environments independently.
 
 ---
 ## 7. What is the purpose of `terraform init`?
-**Answer:**
+
 The **`terraform init`** command initializes a Terraform configuration. It installs the necessary provider plugins and sets up the working directory for Terraform. This command must be run before any other Terraform commands (like `plan` or `apply`) to initialize the working environment.
 
 ---
 ## 8. Explain the use of `terraform output`.
-**Answer:**
+
 The **`terraform output`** command is used to display the values of output variables defined in the Terraform configuration. It allows users to view information about resources created by Terraform, such as IP addresses, URLs, or any other important values that need to be passed between modules or outputs to other systems.
 
 ---
 ## 9. What is the purpose of `terraform validate`?
-**Answer:**
+
 The **`terraform validate`** command checks the syntax and validity of your Terraform configuration files. It does not interact with the infrastructure or state but ensures that the configuration is correctly written and that there are no errors in the code.
 
 ---
 ## 10. How do you handle secrets in Terraform?
-**Answer:**
+
 To handle secrets in Terraform, you should avoid hardcoding sensitive data in configuration files. Instead, you can:
 - Use environment variables to store secrets securely.
 - Use the **`vault`** provider to integrate with HashiCorp Vault for secret management.
@@ -57,7 +61,7 @@ To handle secrets in Terraform, you should avoid hardcoding sensitive data in co
 
 ---
 ## 11. What happens if two developers or DevOps engineers work on the same Terraform file and try to apply or use it at the same time?
-**Answer:**
+
 If two developers or DevOps engineers work on the same Terraform file and try to apply changes at the same time, the following issues can occur.
 
 ## Potential Issues
