@@ -1,5 +1,7 @@
-# 1. You have multiple environments - dev, stage, prod for your application and you want to use the same code for all of these environment. How can you do that?
-- To use the same code across multiple environments like dev, stage, and prod, while managing the environment-specific differences, I would follow these practices:
+
+---
+### 1. You have multiple environments - dev, stage, prod for your application and you want to use the same code for all of these environment. How can you do that?
+To use the same code across multiple environments like dev, stage, and prod, while managing the environment-specific differences, I would follow these practices:
 1. **Environment Variables**:  
     - I would use environment variables to manage environment-specific configurations like database URLs, API keys, etc. Each environment would have its own set of environment variables, ensuring the same code works with different settings in each environment.
 2. **Configuration Files**:  
