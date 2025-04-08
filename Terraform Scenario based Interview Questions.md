@@ -136,9 +136,21 @@ Managing secrets and sensitive data in Terraform requires a careful approach to 
 5. **Access Control**:-  Restrict access to Terraform state files and secrets using **IAM roles** and **policies**, ensuring that only authorized users or services can access them.
 
 ---
+### **You have a RDS Database and EC2 instance. EC2 should be created before RDS, How can you specify dependencies between resources in Terraform?**
+- In Terraform, you can specify dependencies between resources using the `depends_on` attribute within resource blocks.
+- By including this attribute, you define an explicit ordering of resource creation and ensure that one resource is created before another. This helps manage dependencies when one resource relies on the existence or configuration of another resource.
 
+**Explicit Dependency (Using depends_on):** If you want to explicitly specify the order of resource creation, you can use the **depends_on** argument to ensure that the EC2 instance is created before the RDS instance, even if there is no direct reference.
+```hcl
+resource "aws_db_instance" "example_rds" {
+  instance_class = "db.t2.micro"
+  engine         = "mysql"
+  db_name        = "mydb"
 
-
+  depends_on = [aws_instance.example_ec2]  # Ensures EC2 is created first
+}
+```
+---
 
 
 
