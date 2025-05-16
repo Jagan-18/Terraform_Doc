@@ -15,6 +15,13 @@ instance_type = "t2.micro"
 }
 ```
 ---
+# Tell me about your project in terraform?
+> “In my recent project, I used Terraform to automate AWS infrastructure. I built reusable modules for VPC, EC2, RDS, and S3. We used remote state with S3 and locking with DynamoDB. Different environments like dev and prod were handled using separate variable files. The code was stored in Git, and GitHub Actions ran Terraform plan and apply as part of CI/CD. This helped us manage infrastructure consistently and reduce manual effort.”
+
+
+
+---
+---
 ## 2. Explain the concept of Terraform providers.
 - A **provider** in Terraform is responsible for interacting with external APIs to manage the lifecycle of resources.
 - Providers define the set of resources that can be created, read, updated, and deleted, such as AWS, Azure, Google Cloud, etc.
@@ -155,4 +162,5 @@ The **Terraform state file** (`terraform.tfstate`) is used by Terraform to keep 
 - Terraform's "module registry" is a central repository for sharing and discovering Terraform modules. The module registry allows users to publish their modules, which are reusable and shareable components of Terraform configurations.
 - By leveraging the module registry, you can easily discover existing modules that address your infrastructure needs, reducing duplication of effort. You can reference modules in your Terraform code using their registry URL and version.
 
+---
 
