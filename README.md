@@ -173,6 +173,18 @@ I manage infrastructure using **Infrastructure as Code (IaC)**, mainly with **Te
 This ensures our infrastructure is **consistent, repeatable, and easy to manage across environments**.
 
 ---
+## 16. Can you explain the folder structure and complete workflow of how you write and use Terraform modules? For example, if you need to create a VPC and provision a few EC2 instances to deploy an application for a customer — what strategy would you follow? How do you structure your code, manage and call the modules, store the state file, and provision the full infrastructure from start to end?
+
+✅ **"To manage infrastructure with Terraform, I follow a modular and environment-based structure.**
+1. I start by creating reusable modules for core components like **VPC, EC2 instances, and security groups**, stored in a `modules/` folder.
+2. For each environment like **dev or prod**, I use separate folders (`environments/dev`) where I call the modules with specific inputs using a `main.tf`.
+3. I manage the **Terraform state remotely** using **S3**, with **DynamoDB for state locking**, and each environment has its own `backend.tf` to isolate state files.
+4. All code is kept in **Git**, and I use **CI/CD pipelines** (like GitHub Actions or Jenkins) to automate `terraform plan` and `apply`.
+
+This approach keeps the infrastructure **modular, secure, and easy to manage across environments and customer projects."**
+
+---
+
 
 
 
