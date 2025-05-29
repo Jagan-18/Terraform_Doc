@@ -124,14 +124,10 @@ If two developers or DevOps engineers work on the same Terraform file and try to
 
 ### Best Practices**
 > **1. State Locking:** - Use a **remote backend** with **state locking** (e.g., S3 with DynamoDB) to prevent simultaneous `terraform apply` actions.
-
->  **2. Version Control:** - Use **Git** with a clear **branching strategy** and **pull requests** to avoid merge conflicts.
-
-> **3. Modularization:** - Break down Terraform code into **modules** so that developers can work on different parts of the infrastructure without interfering with each other.
-
-> **4. Communication:** - Ensure **good communication** within the team to coordinate changes and avoid overlapping work.
-
-> **5. CI/CD Pipelines:** - Use **CI/CD pipelines** to automate the `terraform plan` and require **manual approval** before applying changes.
+> **2. Version Control:** - Use **Git** with a clear **branching strategy** and **pull requests** to avoid merge conflicts.
+>**3. Modularization:** - Break down Terraform code into **modules** so that developers can work on different parts of the infrastructure without interfering with each other.
+>**4. Communication:** - Ensure **good communication** within the team to coordinate changes and avoid overlapping work.
+>**5. CI/CD Pipelines:** - Use **CI/CD pipelines** to automate the `terraform plan` and require **manual approval** before applying changes.
 
 ---
 ---
