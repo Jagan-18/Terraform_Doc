@@ -162,4 +162,18 @@ The **Terraform state file** (`terraform.tfstate`) is used by Terraform to keep 
 - By leveraging the module registry, you can easily discover existing modules that address your infrastructure needs, reducing duplication of effort. You can reference modules in your Terraform code using their registry URL and version.
 
 ---
+## 15.How do you manage your infrastructure?
+I manage infrastructure using **Infrastructure as Code (IaC)**, mainly with **Terraform**.
+1. **Version Control**: All IaC code is stored in Git for tracking and collaboration.
+2. **Modular Setup**: I use reusable Terraform modules for components like VPC, EC2, EKS, etc.
+3. **Environment Management**: I maintain separate workspaces or state files for dev, staging, and production.
+4. **CI/CD Integration**: Infrastructure changes are deployed through automated pipelines using tools like Jenkins, GitHub Actions, or GitLab CI.
+5. **Security & Compliance**: I apply least-privilege IAM policies, use remote state with locking (S3 + DynamoDB), and scan code using tools like `tfsec` or `checkov`.
+
+This ensures our infrastructure is **consistent, repeatable, and easy to manage across environments**.
+
+---
+
+
+
 
