@@ -32,7 +32,8 @@ region = "us-west-2"
 
 ---
 ## 3. What is a Terraform module?
-A **module** in Terraform is a container for multiple resources that are used together. It allows you to group related resources, making your configuration reusable and more manageable. Modules can be created locally or sourced from the Terraform Registry, and they help in organizing your infrastructure code in a modular way.
+- A Terraform module is a container for multiple resources that are used together. It helps group related infrastructure components, making the configuration reusable, organized, and easier to manage.
+- Modules can be local or sourced from the Terraform Registry, and they're useful for keeping your infrastructure code modular, scalable, and consistent across environments
 
 ---
 ## 4. How does Terraform manage state?
