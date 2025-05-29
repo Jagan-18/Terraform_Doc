@@ -36,13 +36,13 @@ region = "us-west-2"
 - Modules can be local or sourced from the Terraform Registry, and they're useful for keeping your infrastructure code modular, scalable, and consistent across environments
 
 ### What is the use of a module in Terraform?
->In Terraform, a **module** is a reusable block of code that defines infrastructure components.
-**Use of modules:**
-1. **Reusability** – Write once, use in multiple places (e.g., VPC, EC2, S3).
-2. **Organization** – Keeps code clean and modular, especially in large projects.
-3. **Consistency** – Ensures the same configuration is applied across environments.
-4. **Simplifies management** – Makes it easier to maintain and scale infrastructure.
-I typically create modules for common components and call them with different variables based on the environment (dev, prod, etc.).
+> In Terraform, a **module** is a reusable block of code that defines infrastructure components.
+> **Use of modules:**
+> 1. **Reusability** – Write once, use in multiple places (e.g., VPC, EC2, S3).
+> 2. **Organization** – Keeps code clean and modular, especially in large projects.
+> 3. **Consistency** – Ensures the same configuration is applied across environments.
+> 4. **Simplifies management** – Makes it easier to maintain and scale infrastructure.
+> I typically create modules for common components and call them with different variables based on the environment (dev, prod, etc.).
 ---
 ## 4. How does Terraform manage state?
 Terraform uses a state file (`terraform.tfstate`) to track the current state of the infrastructure. The state file allows Terraform to determine what changes need to be made when running `terraform apply`. This file can be stored locally or remotely (e.g., in AWS S3), and it is critical for maintaining consistency between the actual infrastructure and the Terraform configuration.
