@@ -123,6 +123,7 @@ If two developers or DevOps engineers work on the same Terraform file and try to
   - **Partial updates** or **resource destruction**
 
 ### Best Practices**
+
 **1. State Locking:** - Use a **remote backend** with **state locking** (e.g., S3 with DynamoDB) to prevent simultaneous `terraform apply` actions.
 **2. Version Control:** - Use **Git** with a clear **branching strategy** and **pull requests** to avoid merge conflicts.
 **3. Modularization:** - Break down Terraform code into **modules** so that developers can work on different parts of the infrastructure without interfering with each other.
@@ -147,8 +148,11 @@ Here’s a **clear, concise, and interview-ready** answer to:
 #### How do we keep the state file in Terraform?**
 >By default, Terraform stores the state file **locally**, but in real projects, we store it **remotely** to enable team collaboration and ensure safety.
 > I commonly use: * **Amazon S3** for storing the `.tfstate` file
+
 > **DynamoDB** for state **locking and consistency**
+
 > This is configured in the `backend` block in `backend.tf`
+
 >**Example:**
 ```hcl
 terraform {
