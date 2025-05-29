@@ -31,6 +31,7 @@ region = "us-west-2"
 }`
 
 ---
+---
 ## 3. What is a Terraform module?
 - A Terraform module is a container for multiple resources that are used together.
 - It helps group related infrastructure components, making the configuration reusable, organized, and easier to manage.
@@ -44,6 +45,13 @@ region = "us-west-2"
 > 3. **Consistency** – Ensures the same configuration is applied across environments.
 > 4. **Simplifies management** – Makes it easier to maintain and scale infrastructure.
 > I typically create modules for common components and call them with different variables based on the environment (dev, prod, etc.).
+
+### Have you created modules and used them for multiple infrastructure creations?
+> **Yes, I’ve created reusable Terraform modules and used them across multiple infrastructure deployments.**
+> For example, I built modules for common components like **VPC, EC2, Security Groups, and IAM roles.** These modules are stored in a central modules/ folder and include main.tf, variables.tf, and outputs.tf.
+> Then, in each environment like **dev, staging, or prod,** I call these modules in the environment-specific **main.tf,** passing in different variables as needed.
+> This approach saves time, ensures consistency, and makes the infrastructure easier to maintain across multiple projects or customer environments.
+---
 ---
 ## 4. How does Terraform manage state?
 Terraform uses a state file (`terraform.tfstate`) to track the current state of the infrastructure. The state file allows Terraform to determine what changes need to be made when running `terraform apply`. This file can be stored locally or remotely (e.g., in AWS S3), and it is critical for maintaining consistency between the actual infrastructure and the Terraform configuration.
