@@ -77,14 +77,12 @@ A block in Terraform is a fundamental unit of configuration. It’s a section of
     ```
 
 
-In summary:
-Blocks are the building bricks of Terraform code. Most configurations are made up of multiple blocks, each representing a provider, resource, variable, output, module, or data source.
-Would you like examples of how to use variable or module blocks for more complex setups? Or do you want to see a sample project’s file structure?
-
+#### In summary:
+1. Blocks are the building bricks of Terraform code.
+2.  Most configurations are made up of multiple blocks, each representing a provider, resource, variable, output, module, or data source.
 
 ----
-# Common Types of Terraform Blocks
-
+# Common Types of Terraform Blocks:
 #### 1. Provider Block
 Defines which provider (like AWS, Azure, Google Cloud) Terraform should use.
  ```
@@ -96,47 +94,53 @@ Why it matters: This tells Terraform where and how to provision resources.
 
 #### 2. Resource Block
 Declares an actual cloud resource (like an EC2 instance, S3 bucket, etc.).
-Unknownresource "aws_instance" "web_server" {
+```
+ resource "aws_instance" "web_server" {
   ami           = "ami-0abcd1234abcd5678"
   instance_type = "t2.micro"
-}
-
+ }
+```
 Why it matters: This is how you define what infrastructure you want Terraform to create.
 
 #### 3. Variable Block
 Allows you to define dynamic values that can be reused and customized.
-Unknownvariable "region" {
+```
+ variable "region" {
   description = "AWS region"
   default     = "us-east-1"
-}
-
+ }
+```
 Why it matters: Makes your code flexible for different environments or team members.
 
 #### 4. Output Block
 Specifies values to output after apply—useful for surfacing important info like IPs or resource IDs.
-Unknownoutput "instance_ip" {
+```
+ output "instance_ip" {
   value = aws_instance.web_server.public_ip
-}
-
+ }
+```
 Why it matters: Easily access results for use in other systems or scripts.
 
 #### 5. Module Block
 Lets you reuse sets of resources (a “module”) to promote best practices and reduce duplication.
-Unknownmodule "network" {
+```
+ module "network" {
   source = "./modules/network"
   cidr_block = "10.0.0.0/16"
-}
-
+ }
+```
 Why it matters: Enables sharing and standardization across deployments.
 
 #### 6. Data Block
 Reads information from external sources (like an existing AMI) without creating new resources.
-Unknowndata "aws_ami" "latest" {
+```
+ data "aws_ami" "latest" {
   most_recent = true
   owners      = ["self"]
-}
-
+ }
+```
 Why it matters: References current infrastructure for smarter builds.
+
 ---
 **How Blocks Work Together**
 A typical Terraform file combines these blocks to assemble infrastructure. For example:
