@@ -5,7 +5,9 @@ A Terraform configuration is a collection of files (usually with the .tf extensi
 
 <img width="1400" height="618" alt="Image" src="https://github.com/user-attachments/assets/2b5ad04c-7906-4315-81c4-c38018be2726" />
 
-**2. Structure of a Configuration** A basic configuration typically includes:
+---
+
+## 2. Structure of a Configuration** A basic configuration typically includes:
 
 **1. Provider Block:** Specifies the cloud or service you’re managing.
 
