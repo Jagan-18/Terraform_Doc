@@ -2,10 +2,12 @@
 **1. What Is a Terraform Configuration?**
 A Terraform configuration is a collection of files (usually with the .tf extension) written in HashiCorp Configuration Language (HCL). These files define the desired state of your infrastructure—what resources you want, how they should behave, and which provider to use.
 
-**2. Structure of a Configuration**
-A basic configuration typically includes:
+**2. Structure of a Configuration** A basic configuration typically includes:
+
 **1. Provider Block:** Specifies the cloud or service you’re managing.
+
 **2. Resource Block:** Declares what you want to create/manage.
+
 **3. Variables & Outputs:** (Optional) Make your config flexible and reusable.
 
 ## Example Structure:
@@ -34,11 +36,9 @@ A basic configuration typically includes:
  }
 
 ```
-
 **4. Resource Block:**
 - Declares infrastructure objects.
 - Each resource has a type (e.g., aws_instance), a name, and configuration parameters.
-
 
 ```
  resource "aws_instance" "web_server" {
@@ -57,7 +57,7 @@ Variables and outputs add modularity and flexibility.
 ```
 Use the variable in your resource:
 
-instance_type = var.instance_type
+**instance_type = var.instance_type**
 
 ### Outputs:
 ```
@@ -65,7 +65,6 @@ output "instance_id" {
   value = aws_instance.web_server.id
 }
 ```
-
 **6. Initialization and Workflow Steps:**
 After you write your configuration:
 
@@ -77,7 +76,6 @@ After you write your configuration:
  - Run: terraform apply
 4. Review or update as needed
  - Edit your .tf files and repeat the workflow.
-
 
 **7. Organizing Your Configurations:**
 1. **main.tf** – Main resources and providers
