@@ -1,5 +1,6 @@
 # Terraform Configuration: Key Notes & Guide
 **1. What Is a Terraform Configuration?**
+
 A Terraform configuration is a collection of files (usually with the .tf extension) written in HashiCorp Configuration Language (HCL). These files define the desired state of your infrastructure—what resources you want, how they should behave, and which provider to use.
 
 **2. Structure of a Configuration** A basic configuration typically includes:
