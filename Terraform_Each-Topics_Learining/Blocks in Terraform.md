@@ -87,10 +87,11 @@ Would you like examples of how to use variable or module blocks for more complex
 
 #### 1. Provider Block
 Defines which provider (like AWS, Azure, Google Cloud) Terraform should use.
-Unknownprovider "aws" {
+ ```
+ provider "aws" {
   region = "us-east-1"
-}
-
+ }
+ ```
 Why it matters: This tells Terraform where and how to provision resources.
 
 #### 2. Resource Block
