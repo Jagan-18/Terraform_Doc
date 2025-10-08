@@ -4,6 +4,21 @@
 #### What Is the Terraform CLI?
 The Terraform CLI is the command-line tool that lets you interact with Terraform, executing tasks like initializing your project, planning and applying changes, validating configurations, and inspecting resources. Virtually every operation in Terraform begins here.
 
+---
+## Step-by-Step Guide:
+Run the following commands in the terminal and inspect their output. To learn more about each command, try adding a `-help` flag to the command!
+
+-   `terraform validate`: Checks the syntax of the Terraform files and verifies that they are internally consistent, but does not ensure that the resources exist or that the providers are properly configured.
+-   `terraform fmt`: Automatically updates Terraform configuration files to a canonical format and style, improving consistency and readability. The command works only for the files in the current working directory, but you can also add a `-recursive` flag to format `.tf` files in nested directories.
+-   `terraform plan`: Creates an execution plan, showing what actions Terraform will take to achieve the desired state defined in the Terraform files. This command does not modify the actual resources or state.
+-   `terraform plan -out <filename>`: Similar to `terraform plan`, but it also writes the execution plan to a file that can be used by `terraform apply`, ensuring that exactly the planned actions are taken.
+-   `terraform apply`: Applies the execution plan, making the necessary changes to reach the desired state of the resources. If you run `terraform plan` with the `-out` option, you can run `terraform apply <filename>` to provide the execution plan.
+-   `terraform show`: Provides human-readable output from a state or plan file. It's used to inspect the current state or to see the actions planned by a `terraform plan` command.
+-   `terraform state list`: Lists all resources in the state file, useful for managing and manipulating the state.
+-   `terraform destroy`: Destroys all resources tracked in the state file. This command is the equivalent of passing a `-destroy` flag to the `terraform apply` command.
+-   `terraform -help`: Provides help information about Terraform commands. It can be used alone for a general overview, or appended to a specific command for detailed help about that command.
+
+---
 ### Essential Terraform CLI Commands
 Here’s a breakdown of the key commands you’ll use most often, along with their practical meaning and workflow context:
 
@@ -46,7 +61,7 @@ Here’s a breakdown of the key commands you’ll use most often, along with the
 - **Purpose:** Inspects and manages the current state file.
 - **Details:** Advanced users use it to list, show, rm, and mv resources in state.
 - **Use Case:** Useful for troubleshooting or advanced manual interventions.
-
+---
 
 #### Typical Workflow Example:
 1. Write or update .tf config files.
@@ -55,8 +70,7 @@ Here’s a breakdown of the key commands you’ll use most often, along with the
 4. Run terraform apply to create or update infrastructure.
 5. Use terraform output to see exported values.
 6. When finished, run terraform destroy to clean up.
-
-
+---
 #### Best Practices for Using the CLI:
 1. Always run terraform plan before terraform apply.
 2. Commit your formatted code by running terraform fmt.
