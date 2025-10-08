@@ -1,3 +1,7 @@
+# Terraform State:
+<img width="1408" height="663" alt="Image" src="https://github.com/user-attachments/assets/9730bd48-bcb6-417e-bf55-e6cc8d0c7448" />
+
+---
 # what is Terraform State?
 Terraform uses a **state file (terraform.tfstate)** to keep track of the resources it manages. This state file serves as a **snapshot** of your infrastructure's current configuration, allowing Terraform to know what  resources it has **created, updated, or destroyed.**
 
